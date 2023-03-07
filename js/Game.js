@@ -58,37 +58,56 @@ class Game {
         this.resetGame()
     }
 
+    // handleInteraction(button) {
+    //     button.disabled = true;
+    //     const isMatch = this.activePhrase.checkLetter(button.textContent);
+    //     if(isMatch) {
+    //         button.classList.add('chosen');
+    //         if(this.checkForWin()) {
+    //             this.gameOver(true);
+    //         }
+    //         return true;
+    //     } else {
+    //         button.classList.add('wrong');
+    //         this.removeLife();
+    //         return false;
+    //     }
+    // }
 
-    // function buttonsEvent(e) {
-//   const button = e.target;
-//   const buttonText = e.target.textContent;
-//   if (button.tagName === 'BUTTON') {
-//       button.classList.add('chosen');
-//     if (!game.handleInteraction(buttonText)) {
-//       button.classList.add('wrong');
-//       button.disabled = true;
-//     }
-//   }
-// }
-
+    // handleInteraction(button) {
+    //     button.disabled = true;
+    //     if (this.activePhrase.checkLetter(button.textContent)) {
+    //       button.classList.add('chosen');
+    //       this.activePhrase.showMatchedLetter(button.textContent);
+    //       if (this.checkForWin()) {
+    //         this.gameOver(true);
+    //       }
+    //       return true;
+    //     } else {
+    //       button.classList.add('wrong');
+    //       this.removeLife();
+    //       return false;
+    //     }
+    //   }
     handleInteraction(button) {
         button.disabled = true;
-        const isMatch = this.activePhrase.checkLetter(button.textContent);
-        if(isMatch) {
-            button.classList.add('chosen');
-            if(this.checkForWin()) {
-                this.gameOver(true);
-            }
-            return true;
+        const letter = button.textContent;
+        if (this.activePhrase.checkLetter(letter)) {
+          button.classList.add('chosen');
+          const letterLI = document.querySelectorAll(`.letter.${letter}`); // took it from stakOverFlow, the code target is create a css selector string that targets all li elements with both letter class and letter argument
+          for (let i = 0; i < letterLI.length; i++) {
+            this.activePhrase.showMatchedLetter(letterLI[i]);
+          }
+          if (this.checkForWin()) {
+            this.gameOver(true);
+          }
+          return true;
         } else {
-            button.classList.add('wrong');
-            this.removeLife();
-            return false;
+          button.classList.add('wrong');
+          this.removeLife();
+          return false;
         }
-    }
-
-
-
+      }
       
 
     resetGame() {
