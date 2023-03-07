@@ -14,9 +14,6 @@ restartBtn.addEventListener('click', newGame);
 
 
 // //function and eventListener for the key buttons : 
-// function pressedKey(e) {
-
-// }
 
 divButtons.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
