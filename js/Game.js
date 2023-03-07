@@ -58,29 +58,37 @@ class Game {
         this.resetGame()
     }
 
-    handleInteraction(letter) {
-        const isMatch = this.activePhrase.checkLetter(letter);
+
+    // function buttonsEvent(e) {
+//   const button = e.target;
+//   const buttonText = e.target.textContent;
+//   if (button.tagName === 'BUTTON') {
+//       button.classList.add('chosen');
+//     if (!game.handleInteraction(buttonText)) {
+//       button.classList.add('wrong');
+//       button.disabled = true;
+//     }
+//   }
+// }
+
+    handleInteraction(button) {
+        button.disabled = true;
+        const isMatch = this.activePhrase.checkLetter(button.textContent);
         if(isMatch) {
+            button.classList.add('chosen');
+            isMatch;
             if(this.checkForWin()) {
                 this.gameOver(true);
             }
+            return true;
         } else {
+            button.classList.add('wrong');
             this.removeLife();
+            return false;
         }
-        return isMatch;
     }
 
-// divButtons.addEventListener('click', (e) => {
-//     const button = e.target;
-//     const buttonText = e.target.textContent;
-//     if (button.tagName === 'BUTTON') {
-//         button.classList.add('chosen');
-//       if (!game.handleInteraction(buttonText)) {
-//         button.classList.add('wrong');
-//         button.disabled = true;
-//       }
-//     }
-//   });
+
 
       
 
