@@ -70,6 +70,20 @@ class Game {
         return isMatch;
     }
 
+// divButtons.addEventListener('click', (e) => {
+//     const button = e.target;
+//     const buttonText = e.target.textContent;
+//     if (button.tagName === 'BUTTON') {
+//         button.classList.add('chosen');
+//       if (!game.handleInteraction(buttonText)) {
+//         button.classList.add('wrong');
+//         button.disabled = true;
+//       }
+//     }
+//   });
+
+      
+
     resetGame() {
         this.missed = 0;
         const buttons = document.querySelectorAll('.key');
