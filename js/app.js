@@ -7,6 +7,7 @@ let game;
 //function and eventListener to start new game : 
 function newGame() {
     game = new Game()
+    game.resetGame();
     game.startGame();
     // handleInteraction()
 }
