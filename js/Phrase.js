@@ -37,9 +37,6 @@ class Phrase {
         return isMatch;
     }
 
-    // showMatchedLetter() {
-
-    // }
 
 }
 
