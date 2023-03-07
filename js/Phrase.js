@@ -40,7 +40,6 @@ class Phrase {
         letterLI.classList.remove('hide');
         letterLI.classList.add('show');
     }
-
 }
 
 
