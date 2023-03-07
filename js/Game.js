@@ -60,7 +60,6 @@ class Game {
         const isMatch = this.activePhrase.checkLetter(letter);
 
         if(isMatch) {
-            this.activePhrase.checkLetter(letter);
             if(this.checkForWin()) {
                 this.gameOver(true);
             }
@@ -68,5 +67,5 @@ class Game {
             this.removeLife();
         }
     }
-    
+
 }
