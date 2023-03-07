@@ -42,6 +42,7 @@ class Game {
         }
     }
 
+
     gameOver(gameWon) {
         const gameOverMessage = document.getElementById('game-over-message');
         overlay.style.display = '';
@@ -49,10 +50,12 @@ class Game {
             gameOverMessage.textContent = `You gueesed the right phrase after ${this.missed} wrong guesses. Well Done!`
             overlay.classList.remove('start')
             overlay.classList.add('win');
+            resetGame()
         } else {
-            gameOverMessage.textContent = `Keep on going, try to start over again and guess the right number.`
+            gameOverMessage.textContent = `Keep on going, try to start over again and guess the right phrase.`
             overlay.classList.remove('start')
             overlay.classList.add('lose');
+            resetGame()
         }
     }
 
@@ -68,4 +71,10 @@ class Game {
         return isMatch;
     }
 
+    resetGame() {
+        const button = document.querySelectorAll('.key');
+        const li = phraseUL.children;
+        li.remove();
+        button.disabled = false;
+    }
 }
