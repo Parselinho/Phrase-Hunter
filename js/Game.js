@@ -82,5 +82,9 @@ class Game {
             img[i].src = 'images/liveHeart.png';
             img[i].alt = 'Heart Icon'
         }
+        const liArray = [...phraseUL.children];
+        for (let i = 0; i < liArray.length; i++) {
+          phraseUL.removeChild(liArray[i]);
+        }
     }
 }
