@@ -20,7 +20,7 @@ restartBtn.addEventListener('click', newGame);
 
 divButtons.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
-        console.log(handleInteraction(button));
+        console.log(handleInteraction(e.target.textContent));
     }
 });
 
