@@ -5,9 +5,10 @@ let game;
 
 //function and eventListener to start new game : 
 function newGame() {
-    game = new Game().startGame();
-    game.activePhrase.checkLetter('a')
+    game = new Game()
+    game.startGame();
 }
+
 restartBtn.addEventListener('click', newGame);
 
 // const game = new Game();
