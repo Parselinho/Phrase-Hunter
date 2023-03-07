@@ -46,7 +46,7 @@ class Game {
         const gameOverMessage = document.getElementById('game-over-message');
         overlay.style.display = '';
         if (gameWon) {
-            gameOverMessage.textContent = `You gueesed the right phrase after ${this.missed} tries. <strong>Well Done!</strong>`
+            gameOverMessage.textContent = `You gueesed the right phrase after ${this.missed} tries. Well Done!`
             overlay.classList.remove('start')
             overlay.classList.add('win');
         } else {
