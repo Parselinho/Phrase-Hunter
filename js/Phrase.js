@@ -29,14 +29,17 @@ class Phrase {
         let isMatch = false;
         for (let i =0; i < letterLI.length; i++) {
         if (letterLI[i].textContent === letter) {
-            letterLI[i].classList.remove('hide');
-            letterLI[i].classList.add('show');
+            this.showMatchedLetter(letterLI[i]);
             isMatch = true;
         }
         }
         return isMatch;
     }
 
+    showMatchedLetter(letterLI) {
+        letterLI.classList.remove('hide');
+        letterLI.classList.add('show');
+    }
 
 }
 
