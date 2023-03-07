@@ -76,7 +76,6 @@ class Game {
         const isMatch = this.activePhrase.checkLetter(button.textContent);
         if(isMatch) {
             button.classList.add('chosen');
-            isMatch;
             if(this.checkForWin()) {
                 this.gameOver(true);
             }
