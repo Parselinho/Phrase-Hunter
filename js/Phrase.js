@@ -24,6 +24,7 @@ class Phrase {
 
     // `checkLetter()`: Checks to see if the letter selected by the player matches a letter in the phrase.
     //  and Reveals the letter(s) on the board that matches the  player's selection.
+
     checkLetter(letter) {
         const letterLI = document.querySelectorAll('.letter');
         let isMatch = false;
@@ -37,8 +38,10 @@ class Phrase {
     }
 
     showMatchedLetter(letterLI) {
+        if (letterLI) {
         letterLI.classList.remove('hide');
         letterLI.classList.add('show');
+        }
     }
 }
 
