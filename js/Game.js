@@ -31,7 +31,7 @@ class Game {
     }
 
     removeLife(letter) {
-        const hiddenLetter = document.querySelectorAll('.letter.hide');
+        const hiddenLetter = document.querySelectorAll(`.letter.${letter}.hide`);
         const img = document.querySelectorAll('.tries img');
         this.missed += 1;
         // selects the heart image corresponding to the cuurent number of lives lost
@@ -50,13 +50,12 @@ class Game {
             gameOverMessage.textContent = `You gueesed the right phrase after ${this.missed} wrong guesses. Well Done!`
             overlay.classList.remove('start')
             overlay.classList.add('win');
-            resetGame()
         } else {
             gameOverMessage.textContent = `Keep on going, try to start over again and guess the right phrase.`
             overlay.classList.remove('start')
             overlay.classList.add('lose');
-            resetGame()
         }
+        this.resetGame()
     }
 
     handleInteraction(letter) {
@@ -72,9 +71,17 @@ class Game {
     }
 
     resetGame() {
+        this.missed = 0;
         const button = document.querySelectorAll('.key');
-        const li = phraseUL.children;
-        li.remove();
-        button.disabled = false;
+        for(let i = 0; i < button.length; i++) {
+            button[i].classList.remove('chosen');
+            button[i].classList.remove('wrong');
+            button[i].disabled = false;
+        }
+        const img = document.querySelectorAll('.tries img');
+        for (let i=0; i< img.length; i++) {
+            img[i].src = 'images/liveHeart.png';
+            img[i].alt = 'Heart Icon'
+        }
     }
 }
