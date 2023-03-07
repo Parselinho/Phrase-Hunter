@@ -9,13 +9,12 @@ function newGame() {
     game = new Game()
     game.resetGame();
     game.startGame();
-    // handleInteraction()
 }
 
 restartBtn.addEventListener('click', newGame);
 
 
-// //function and eventListener for the key buttons : 
+//function and eventListener for the key buttons : 
 divButtons.addEventListener('click', (e) => {
     const button = e.target;
     const buttonText = e.target.textContent;
@@ -27,19 +26,3 @@ divButtons.addEventListener('click', (e) => {
       }
     }
   });
-
-
-// const game = new Game();
-// game.startGame();
-// console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
-
-// const game = new Game();
-// const randomPhrase = game.getRandomPhrase();
-// const phrase = new Phrase(randomPhrase.phrase);
-// phrase.addPhraseToDisplay();
-
-
-// const game = new Game();
-// game.phrases.forEach((phrase, index) => {
-// console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
-// });
