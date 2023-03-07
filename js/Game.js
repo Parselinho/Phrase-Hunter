@@ -58,7 +58,6 @@ class Game {
 
     handleInteraction(letter) {
         const isMatch = this.activePhrase.checkLetter(letter);
-
         if(isMatch) {
             if(this.checkForWin()) {
                 this.gameOver(true);
