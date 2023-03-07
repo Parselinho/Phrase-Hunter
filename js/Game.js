@@ -72,11 +72,10 @@ class Game {
 
     resetGame() {
         this.missed = 0;
-        const button = document.querySelectorAll('.key');
-        for(let i = 0; i < button.length; i++) {
-            button[i].classList.remove('chosen');
-            button[i].classList.remove('wrong');
-            button[i].disabled = false;
+        const buttons = document.querySelectorAll('.key');
+        for (let i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove('chosen', 'wrong');
+          buttons[i].disabled = false;;
         }
         const img = document.querySelectorAll('.tries img');
         for (let i=0; i< img.length; i++) {
