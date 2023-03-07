@@ -65,6 +65,7 @@ class Game {
         } else {
             this.removeLife();
         }
+        return isMatch;
     }
 
 }
