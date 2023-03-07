@@ -68,5 +68,5 @@ class Game {
             this.removeLife();
         }
     }
-
+    
 }
