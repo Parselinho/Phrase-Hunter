@@ -30,8 +30,8 @@ class Game {
         return hideLetter.length === 0;
     }
 
-    removeLife(letter) {
-        const hiddenLetter = document.querySelectorAll(`.letter.${letter}.hide`);
+    removeLife() {
+        const hiddenLetter = document.querySelectorAll(`.letter.hide`);
         const img = document.querySelectorAll('.tries img');
         this.missed += 1;
         // selects the heart image corresponding to the cuurent number of lives lost
