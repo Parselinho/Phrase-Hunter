@@ -13,26 +13,35 @@ function newGame() {
 
 restartBtn.addEventListener('click', newGame);
 
+
 // function buttonsEvent(e) {
 //   const button = e.target;
-//   const buttonText = e.target.textContent;
 //   if (button.tagName === 'BUTTON') {
-//       button.classList.add('chosen');
-//     if (!game.handleInteraction(buttonText)) {
-//       button.classList.add('wrong');
-//       button.disabled = true;
-//     }
+//     game.handleInteraction(button);
 //   }
-// }
+// };
 
 // divButtons.addEventListener('click', buttonsEvent);
+// divButtons.addEventListener('keydown', buttonsEvent);
 
 function buttonsEvent(e) {
-  const button = e.target;
-  if (button.tagName === 'BUTTON') {
+  let button;
+  if (e.type === 'click') {
+    button = e.target;
+  } else if (e.type === 'keydown') {
+    const letter = e.key;
+    const buttons = document.querySelectorAll('.key');
+    for (let i = 0; i < buttons.length; i++) {
+      if (buttons[i].textContent === letter) {
+        button = buttons[i];
+        break;
+      }
+    }
+  }
+  if (button && button.tagName === 'BUTTON') {
     game.handleInteraction(button);
   }
-};
+}
 
 divButtons.addEventListener('click', buttonsEvent);
-
+document.addEventListener('keydown', buttonsEvent);
