@@ -18,9 +18,12 @@ restartBtn.addEventListener('click', newGame);
 
 divButtons.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
-        console.log(game.handleInteraction(e.target.textContent));
+      if (!game.handleInteraction(e.target.textContent)) {
+        e.target.classList.add('wrong');
+        e.target.disabled = true;
+      }
     }
-});
+  });
 
 
 // const game = new Game();
