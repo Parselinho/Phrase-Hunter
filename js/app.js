@@ -15,17 +15,19 @@ restartBtn.addEventListener('click', newGame);
 
 
 // //function and eventListener for the key buttons : 
-
 divButtons.addEventListener('click', (e) => {
-    if (e.target.tagName === 'BUTTON') {
-      if (!game.handleInteraction(e.target.textContent)) {
-        e.target.classList.add('wrong');
-        e.target.disabled = true;
+    const button = e.target;
+    const buttonText = e.target.textContent;
+    if (button.tagName === 'BUTTON') {
+        button.classList.add('chosen');
+      if (!game.handleInteraction(buttonText)) {
+        button.classList.add('wrong');
+        button.disabled = true;
       }
     }
   });
 
-
+  
 // const game = new Game();
 // game.startGame();
 // console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
