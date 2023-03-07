@@ -8,6 +8,7 @@ let game;
 function newGame() {
     game = new Game()
     game.startGame();
+    // handleInteraction()
 }
 
 restartBtn.addEventListener('click', newGame);
@@ -17,7 +18,7 @@ restartBtn.addEventListener('click', newGame);
 
 divButtons.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
-        console.log(handleInteraction(e.target.textContent));
+        console.log(game.handleInteraction(e.target.textContent));
     }
 });
 
