@@ -1,9 +1,13 @@
 class Game {
     constructor() {
         this.missed = 0;
-        this.phrases = [
-            {phrase: 'Chuku Luku'}, {phrase: 'JavaScript'}, {phrase: 'Front Backend'}, {phrase: 'Israel'}, {phrase: 'Jerusalem'}
-        ];
+        this.phrase =[
+            new Phrase('Chuku Luku'),
+            new Phrase('JavaScript'),
+            new Phrase('Front Backend'),
+            new Phrase('Israel'),
+            new Phrase('Jerusalem')
+            ];
         this.activePhrase = null;
     }
     
@@ -12,7 +16,7 @@ class Game {
     * @return {Object} Phrase object chosen to be used
     */
     getRandomPhrase() {
-        const random = this.phrases[Math.floor(Math.random() * this.phrases.length)];
+        const random = this.phrase[Math.floor(Math.random() * this.phrase.length)];
         return new Phrase(random.phrase);
     }
 
@@ -50,45 +54,16 @@ class Game {
             gameOverMessage.textContent = `You gueesed the right phrase after ${this.missed} wrong guesses. Well Done!`
             overlay.classList.remove('start')
             overlay.classList.add('win');
+            overlay.classList.remove('lose');
         } else {
             gameOverMessage.textContent = `Keep on going, try to start over again and guess the right phrase.`
             overlay.classList.remove('start')
             overlay.classList.add('lose');
+            overlay.classList.remove('win');
         }
         this.resetGame()
     }
 
-    // handleInteraction(button) {
-    //     button.disabled = true;
-    //     const isMatch = this.activePhrase.checkLetter(button.textContent);
-    //     if(isMatch) {
-    //         button.classList.add('chosen');
-    //         if(this.checkForWin()) {
-    //             this.gameOver(true);
-    //         }
-    //         return true;
-    //     } else {
-    //         button.classList.add('wrong');
-    //         this.removeLife();
-    //         return false;
-    //     }
-    // }
-
-    // handleInteraction(button) {
-    //     button.disabled = true;
-    //     if (this.activePhrase.checkLetter(button.textContent)) {
-    //       button.classList.add('chosen');
-    //       this.activePhrase.showMatchedLetter(button.textContent);
-    //       if (this.checkForWin()) {
-    //         this.gameOver(true);
-    //       }
-    //       return true;
-    //     } else {
-    //       button.classList.add('wrong');
-    //       this.removeLife();
-    //       return false;
-    //     }
-    //   }
     handleInteraction(button) {
         button.disabled = true;
         const letter = button.textContent;
