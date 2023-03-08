@@ -53,13 +53,13 @@ class Game {
         if (gameWon) {
             gameOverMessage.textContent = `You gueesed the right phrase after ${this.missed} wrong guesses. Well Done!`
             overlay.classList.remove('start')
-            overlay.classList.add('win');
             overlay.classList.remove('lose');
+            overlay.classList.add('win');
         } else {
             gameOverMessage.textContent = `Keep on going, try to start over again and guess the right phrase.`
             overlay.classList.remove('start')
-            overlay.classList.add('lose');
             overlay.classList.remove('win');
+            overlay.classList.add('lose');
         }
         this.resetGame()
     }
